@@ -1,0 +1,28 @@
+    1  ls
+    2  sudo yum update
+    3  ls
+    4  whoami
+    5  ping google.com
+    6  ls
+    7  ssh -i "AWSkeys.pem" ec2-user@ec2-18-116-72-76.us-east-2.compute.amazonaws.com
+    8  ls
+    9  pwd
+   10  cd /var/log
+   11  cd ..
+   12  pwd
+   13  ls
+   14  ls -l
+   15  ls-ltr
+   16  ls -ltr
+   17  cd /
+   18  cd
+   19  cd ..
+   20  man ls
+   21  cd /var
+   22  ls -lrSs
+   23  uname
+   24  uname -a
+   25  history
+   26  cd
+   27  history > OdayAlfarttosi .220916.module2
+   28  history > OdayAlfarttosi.220916.module2
