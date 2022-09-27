@@ -1,0 +1,48 @@
+#!/bin/bash
+#Activity:4
+#Author:Oday Alfarttosi
+
+echo "Enter ypur password?"
+read password
+
+while  [ ${#password} -lt 8 ]; do    #use while loop to check the password 8 characters at least
+	echo "Your password is insecure,Please enter a new password with at least 8 characters"	       
+        read password         
+done
+if [ ${#password} -ge 8 ]; then  #use if statemnt with condition greater or equal to 8 then do check the other conditions
+
+	A2=`echo $password | grep "[A-Z]"`   
+	if [ -z "$A2" ]; then                  #use if statement if password dont have at least one upercase
+		echo "Password must contain at least ONE uppercase"
+		exit 1
+
+	else 
+
+		A3=`echo $password | grep "[a-z]"`
+        	if [ -z "$A3" ]; then                #use if statement if password dont have at least one upercase
+                	echo "Password must contain at least ONE lowercase"
+                	exit 1
+		else
+			
+			A4=`echo $password | grep "[0-9]"`
+        		if [ -z "$A4" ]; then          #use if statement if password dont have at least one digit
+               	                echo "Password must contain at least ONE digit"
+               		        exit 1
+
+			else 
+				A5=`echo $password | grep "[a-Z]"`
+       				 if [ -z "$A2" ]; then         #use if statement if password dont have at least one letter
+               				  echo "Password must contain at least ONE letter"
+               				  exit 1
+				else 
+					echo "Your password is secure"      #print Your password is secure
+				fi
+			fi
+		 fi
+         fi
+fi
+
+
+
+
+exit 0

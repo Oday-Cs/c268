@@ -1,0 +1,83 @@
+#!/bin/bash
+#Activity: 8
+#Author: Oday Alfarttosi
+
+
+count=1
+arr=()    #empty array to hold numbers
+
+while (( count <  6 )); do   #Use while loop until number of integers reach less than 6
+       echo "Please enter an integer"     
+       read input          # prompt user for integer and store it
+       if [[ $input =~ ^[0-9]+$ ]]; then     # check if they did not enter an integer
+               arr+=($input)      # add input to an array
+               ((count++))
+        else
+                echo "You need to enter an integer"
+                exit 1
+        fi
+done
+
+echo ${arr[@]}
+echo "Do you want to continue? (Yes/No)"  #print statement 
+read option
+choice=${option}
+
+
+
+
+if [[ $choice == "Yes"  || $choice == "yes" ]]; then #use if statement to enter another integer if the choice is Yes
+	while  [ $count -lt 11 ] ;do
+        echo "Please enter a  ${count}th integer"
+        read input
+        if [[ $input =~ ^[0-9]+$ ]]; then    # check if they did not enter an integer
+               arr+=($input)
+               ((count++))
+        else
+                echo "You need to enter an integer"
+
+                exit 1
+        fi
+
+
+        if (( "$count" <= 10 )); then
+                echo "Do you want to continue? (Yes/No)"
+                read option
+                choice=${option}
+		if [[ $choice == "No"  || $choice == "no" ]]; then
+			break
+		fi
+       fi
+done
+fi
+if [[ $choice == "No"  || $choice == "no" ]]; then
+
+mult=1
+sum=0
+min=${arr[0]}
+max=${arr[0]}
+
+     for ii in ${arr[@]}
+     do
+       mult=$((mult*ii))
+       sum=$((sum+ii))
+     if (( min > ii ))
+         then
+             min=$ii
+     fi
+     if (( max < ii ))
+         then
+             max=$ii
+      fi
+done
+
+echo "product is $mult"
+
+avg=$((sum/ii))
+
+echo "average is $avg"    #print the average
+echo "sum is $sum"        #print the Sum
+echo "min is $min"        #print the minimum
+echo "max is $max"        #print the maximum
+fi
+exit 0
